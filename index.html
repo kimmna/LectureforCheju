@@ -1,4 +1,14 @@
-<div>Teachable Machine Image Model</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Portfolio</title>
+</head>
+<body>
+	
+<div>티처블 머신을 활용한 사례</div>
 <button type="button" onclick="init()">Start</button>
 <div id="webcam-container"></div>
 <div id="label-container"></div>
@@ -9,7 +19,7 @@
     // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
 
     // the link to your model provided by Teachable Machine export panel
-    const URL = "{{URL}}";
+    const URL = "./my_model/";
 
     let model, webcam, labelContainer, maxPredictions;
 
@@ -28,7 +38,10 @@
         // Convenience function to setup a webcam
         const flip = true; // whether to flip the webcam
         webcam = new tmImage.Webcam(200, 200, flip); // width, height, flip
-        await webcam.setup(); // request access to the webcam
+	    
+        await webcam.setup(); // 원래 코드 request access to the webcam
+
+			    
         await webcam.play();
         window.requestAnimationFrame(loop);
 
@@ -57,3 +70,6 @@
         }
     }
 </script>
+
+</body>
+</html>
